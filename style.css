@@ -1,0 +1,700 @@
+:root {
+
+    /** Primary colors **/
+    --color-primary-cyan: #2acfcf;
+    --color-primary-cyan-light: hsl(180, 64%, 69%);
+    --color-primary-dark-violet: hsl(257, 27%, 26%);
+
+    /** Secondary colors **/
+    --color-secondary-red: hsl(0, 87%, 67%);
+
+    /** Neutral colors **/
+    --color-neutral-gray: hsl(0, 0%, 75%);
+    --color-neutral-bluish-gray: hsl(230, 25%, 95%);
+    --color-neutral-grayish-violet: hsl(257, 7%, 63%);
+    --color-neutral-very-dark-blue: hsl(255, 11%, 22%);
+    --color-neutral-very-dark-violet: hsl(260, 8%, 14%);
+    --color-white: hsl(0, 0%, 100%);
+}
+
+/* css resets start */
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    font: inherit;
+}
+
+img,
+svg {
+    display: block;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* css resets ends */
+
+ul {
+    list-style: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    text-align: center;
+    color: var(--color-neutral-grayish-violet);
+}
+
+/* keep content under fixed width on large screens */
+.container {
+    margin: 0 auto;
+    max-width: 63rem;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--color-primary-cyan-light);
+}
+
+/* Adding some margin to keep content touching edges of the screen */
+
+@media (max-width: 57.5rem) {
+    .container {
+        margin: 0 1.33rem;
+    }
+}
+
+/** Navigation styles start**/
+
+/** Navigation Desktop **/
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+nav div button {
+    background-color: var(--color-primary-cyan);
+    color: var(--color-white);
+    border: none;
+    font-size: 0.85rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 50vh;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--color-neutral-grayish-violet);
+    font-size: 0.85rem;
+}
+
+nav a:hover {
+    color: var(--color-neutral-very-dark-violet);
+}
+
+#hamburger-icon {
+    display: none;
+    width: 1.3rem;
+    height: 1.2rem;
+    cursor: pointer;
+    z-index: 99;
+}
+
+#hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 0.15rem;
+    border-radius: 1rem;
+    background-color: var(--color-neutral-gray);
+    margin-bottom: 4.8px;
+}
+
+#hamburger-icon span:last-child {
+    margin-bottom: 0;
+}
+
+/** Navigation Mobile **/
+
+@media (max-width: 42rem) {
+
+    nav {
+        position: fixed;
+        top: 4rem;
+        max-width: 19rem;
+        right: -100%;
+        margin: 1.33rem;
+        background-color: var(--color-primary-dark-violet);
+        transition: right .5s ease-in-out;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 2rem;
+        border-radius: 10px;
+        z-index: 99;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 1.5rem;
+        margin: 1rem 0;
+        padding: 0 0 1.5rem 0;
+        border-bottom: 1px solid var(--color-neutral-grayish-violet);
+    }
+
+    nav div {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+        width: 100%;
+    }
+
+    nav div button {
+        background-color: var(--color-primary-cyan);
+        color: var(--color-white);
+        font-weight: 700;
+        padding: 0.5rem 5rem;
+        border: none;
+        border-radius: 50vh;
+    }
+
+    nav a {
+        color: var(--color-white);
+    }
+
+    nav a:hover {
+        color: var(--color-white);
+    }
+
+    #hamburger-icon,
+    #hamburger-icon.active {
+        display: block;
+        z-index: 99;
+    }
+
+    #nav.open {
+        right: 0;
+    }
+}
+
+/** Mobile first styles for rest of the html**/
+
+/* Header and common elements*/
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.logo {
+    width: 7rem;
+}
+
+.cta-btn {
+    color: var(--color-white);
+    background-color: var(--color-primary-cyan);
+    font-weight: 700;
+    padding: 0.8rem 2.7rem;
+    border: none;
+    border-radius: 50vh;
+    margin: 1.5rem 0;
+}
+
+/* Main */
+
+/* hero section */
+.hero-section {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+}
+
+.illustration {
+    width: 32rem;
+    margin: 1.5rem 0 1.5rem 1.33rem;
+}
+
+.illustration img {
+    width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 2.9rem;
+    color: var(--color-neutral-very-dark-blue);
+    margin: 0.5rem 0;
+}
+
+/* input-output and benefit section */
+
+.input-output-benefit-section {
+    background-color: hsl(230, 25%, 95%);
+    margin-top: 8rem;
+    padding-bottom: 5rem;
+}
+
+.url-shortener-section {
+    background: var(--color-primary-dark-violet) url('./images/bg-shorten-mobile.svg');
+    background-repeat: no-repeat;
+    /* Extend background image for bigger viewport */
+    background-size: contain;
+    background-position: right;
+    padding: 1.4rem;
+    border-radius: 10px;
+    transform: translateY(-50%);
+}
+
+.url-shortener-section>div>* {
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    height: 2.7rem;
+}
+
+.url-shortener-section>div>input[type=email] {
+    padding: 0.2rem 1rem;
+}
+
+.url-shortener-section>div>input[type=email]::placeholder {
+    opacity: 0.4;
+    font-size: 1rem;
+}
+
+.url-shortener-section>div>input[type=submit] {
+    background-color: var(--color-primary-cyan);
+    margin-top: 0.9rem;
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+.url-shortener-section>div>input[type=submit]:hover {
+    cursor: pointer;
+    background-color: var(--color-primary-cyan-light);
+}
+
+.input-error {
+    color: var(--color-secondary-red);
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+    text-align: left;
+    font-style: italic;
+    display: none;
+}
+
+/* URL shortener output styles */
+
+.url-output {
+    margin-top: -3rem;
+}
+
+.url-output>.output {
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}
+
+.output>p {
+    color: var(--color-neutral-very-dark-blue);
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--color-neutral-bluish-gray);
+}
+
+.output>a {
+    text-decoration: none;
+    color: var(--color-primary-cyan);
+}
+
+.output>button {
+    background-color: var(--color-primary-cyan);
+    color: var(--color-white);
+    border: none;
+    padding: 0.5rem 0;
+    border-radius: 5px;
+}
+
+/* Secondary heading section and benefits section */
+
+h2,
+h3 {
+    color: var(--color-neutral-very-dark-blue);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+}
+
+.secondary-heading-section>p {
+    margin-bottom: 6rem;
+    font-size: 0.97rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    transform: translateY(-1rem);
+}
+
+.benefit-cards-section {
+    position: relative;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-white);
+    padding: 0 1.7rem 1.7rem 1.7rem;
+    margin-bottom: 5rem;
+    border-radius: 5px;
+}
+
+.card-two,
+.card-three {
+    position: relative;
+    z-index: 3;
+}
+
+/* Pseudo elements to show cyan colored graphic behind the cards */
+
+.card-two::before,
+.card-three::before {
+    content: "";
+    background-color: var(--color-primary-cyan);
+    display: inline-block;
+    width: 8px;
+    height: 70px;
+    top: -80px;
+    position: absolute;
+}
+
+.card-three {
+    margin-bottom: 0;
+}
+
+.card p {
+    font-size: 0.97rem;
+}
+
+.icon-wrapper {
+    background-color: var(--color-primary-dark-violet);
+    height: 5rem;
+    width: 5rem;
+    display: grid;
+    place-content: center;
+    border-radius: 50vh;
+    transform: translateY(-50%);
+}
+
+/* Secondary CTA section */
+
+.secondary-cta-section {
+    background: var(--color-primary-dark-violet) url('./images/bg-boost-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+
+}
+
+.secondary-cta-section p {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--color-white);
+}
+
+/* Footer styles */
+
+footer {
+    background-color: var(--color-neutral-very-dark-violet);
+    padding: 3rem 0;
+}
+
+/* Change logo color to white for footer */
+.invert-color-logo a img {
+    filter: invert(100%) brightness(150%);
+}
+
+footer .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+}
+
+footer ul {
+    padding: 0px;
+}
+
+footer ul li a {
+    color: var(--color-neutral-gray);
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: var(--color-primary-cyan);
+}
+
+footer ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer ul li:first-child a {
+    color: var(--color-white);
+    font-weight: 700;
+}
+
+footer ul li:first-child {
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Adding cyan color to social links on hover */
+
+.social-links a:hover {
+    filter: brightness(0) saturate(100%) invert(85%) sepia(69%) saturate(2555%) hue-rotate(122deg) brightness(88%) contrast(82%);
+}
+
+/* Desktop styles for whole site except navigation */
+
+@media (min-width: 42rem) {
+
+    /* Hero section */
+    .hero-section {
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        margin: 2rem auto;
+        width: 63rem;
+        overflow: visible;
+    }
+
+    .hero-info {
+        text-align: left;
+        width: 45ch;
+    }
+
+    .hero-info h1 {
+        font-size: 3.9rem;
+        line-height: 4.4rem;
+    }
+
+    .illustration {
+        margin: 2rem 0 0rem 4rem;
+    }
+
+    .illustration img {
+        width: 140%;
+        height: auto;
+    }
+
+    /* URL input section */
+
+    .url-shortener-section {
+        background: var(--color-primary-dark-violet) url('./images/bg-shorten-desktop.svg');
+        background-repeat: no-repeat;
+        /* Extend background image for bigger viewport */
+        background-size: cover;
+        /* background-position: right; */
+        padding: 2.8rem 3.2rem;
+    }
+
+    .url-shortener-section>div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .url-shortener-section>div>input[type=email] {
+        height: 3.5rem;
+        padding: 0.2rem 1rem;
+    }
+
+    .url-shortener-section>div>input[type=submit] {
+        margin: 0;
+        width: 25%;
+        height: 3.5rem;
+    }
+
+    /* URL output section */
+
+    .url-output>.output {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    .output>p {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    .output>a {
+        margin-left: auto;
+    }
+
+    .output>button {
+        padding: 0.5rem 2rem;
+    }
+
+    /* Benefits cards section */
+
+    .secondary-heading-section {
+        margin-top: 4.5rem;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+    }
+
+    .secondary-heading-section>p {
+        width: 45ch;
+        margin: 0 auto 6rem auto;
+        font-size: 1.1rem;
+    }
+
+    .benefit-cards-section {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
+        margin: 8rem 0 4rem 0;
+    }
+
+    .card {
+        margin-bottom: 0;
+        text-align: left;
+        align-items: flex-start;
+        padding: 0 2rem 2rem 2rem;
+        z-index: 3;
+    }
+
+    .card p {
+        font-size: 0.85rem;
+    }
+
+    .card-one {
+        transform: translateY(-2rem);
+    }
+
+    .card-three {
+        transform: translateY(2rem);
+    }
+
+    .card-two {
+        position: relative;
+    }
+
+    .card-two::before,
+    .card-three::before {
+        display: none;
+    }
+
+    /* Pseudo elements to show cyan colored graphic behind cards */
+
+    .card-two::before {
+        content: "";
+        background-color: var(--color-primary-cyan);
+        display: inline-block;
+        height: 8px;
+        width: 2rem;
+        top: 43%;
+        left: -32px;
+        position: absolute;
+    }
+
+    .card-two::after {
+        content: "";
+        background-color: var(--color-primary-cyan);
+        display: inline-block;
+        height: 8px;
+        width: 2rem;
+        top: 43%;
+        left: 100%;
+        position: absolute;
+    }
+
+    /* Secondary CTA Section */
+
+    .secondary-cta-section {
+        background: var(--color-primary-dark-violet) url('./images/bg-boost-desktop.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 3rem 0;
+    }
+
+    .secondary-cta-section p {
+        font-size: 2.2rem;
+    }
+
+    /* Footer */
+
+    footer .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    footer ul {
+        text-align: left;
+        font-size: 0.9rem;
+    }
+
+}
+
+/* Attribution styles */
+
+.attribution {
+    position: absolute;
+    bottom: -30px;
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: var(--color-white);
+}
