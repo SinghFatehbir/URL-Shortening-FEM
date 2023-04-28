@@ -27,8 +27,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution](https://www.frontendmentor.io/solutions/)
-- Live Site URL: [Live Site](https://singhfatehbir.github.io/)
+- Live Site URL: [Live Site](https://singhfatehbir.github.io/URL-Shortening-FEM/)
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/interactive-responsive-html-css-js-HDAZVM4mvr)
 
 ### Built with
 
